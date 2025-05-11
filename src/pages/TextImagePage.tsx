@@ -15,7 +15,7 @@ const TextImagePage = () => (
     <footer style={{ backgroundColor: '#343a40', color: '#fff', padding: '20px 0', textAlign: 'center' }}>
       <p className="mb-1">© 2025 Песочный Планшет</p>
       <p style={{ fontSize: '0.9rem' }}>
-        Разработка: <a href="https://github.com/" target="_blank" rel="noopener noreferrer" style={{ color: '#f8f9fa' }}>Ваша команда</a>
+        Разработка: <a href="https://github.com/r1gor-dev" target="_blank" rel="noopener noreferrer" style={{ color: '#f8f9fa' }}>Ваша команда</a>
       </p>
     </footer>
   </div>
