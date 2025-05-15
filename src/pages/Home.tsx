@@ -1,9 +1,8 @@
 import { Container, Row, Col } from 'react-bootstrap';
 
 const Home = () => (
-  <Container fluid className="d-flex align-items-center justify-content-center" style={{ minHeight: '50vh',
-    marginLeft:'-45px',
-   }}>
+  <Container fluid className=" d-flex align-items-center justify-content-center" style={{
+   height: '700px'}}>
     <Row className="w-100 justify-content-center">
       <Col md={10}>
         <Row>

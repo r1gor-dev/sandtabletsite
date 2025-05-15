@@ -5,9 +5,9 @@ import React from 'react';
 
 const CustomModel = ({ rotation }: { rotation: [number, number, number] }) => {
   // Загружаем модель
-  const { scene } = useGLTF('/stone/tabletee.glb'); // Укажите путь к вашей модели
+  const { scene } = useGLTF('/stone/tabletnine.glb'); // Укажите путь к вашей модели
 
-  return <primitive object={scene} rotation={rotation} scale={[1,1,1]} position={[0, 0, 0]}/>;
+  return <primitive object={scene} rotation={rotation} scale={[1,1,1]} position={[0, -0.4, 0]}/>;
 };
 
 const ModelPage = () => {
@@ -40,19 +40,21 @@ const ModelPage = () => {
 
   return (
     <div
-      style={{
-        height: '80vh',
-        background: '#f5f5f5',
-        display: 'flex',
-        flexDirection: 'row',
-        alignItems: 'center',
-        justifyContent: 'space-between',
-        padding: '0 5%',
-      }}
-    >
-      <div style={{ flex: 1, marginRight: '5%' }}>
-        <h2 className="text-start mb-3">3D Модель</h2>
-        <h4 className="text-start mb-4 text-muted">Интерактивная демонстрация</h4>
+  style={{
+    height: '80vh',
+    background: '#f5f5f5',
+    display: 'flex',
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    width: '100vw',
+    margin: -31,
+    padding: 0,
+  }}
+>
+      <div style={{ flex: 1, marginLeft: '100px' }}>
+        <h2 className="text-start mb-3" style={{ color: 'purple', fontSize: '65px' }}>3D Модель</h2>
+        <h4 className="text-start mb-4" text-muted style={{fontSize: '30px', color:"#808080"}}>Интерактивная демонстрация</h4>
         <p style={{ lineHeight: '1.8', fontSize: '1.1rem', textAlign: 'justify' }}>
           Добро пожаловать в демонстрацию 3D-модели. Вы можете взаимодействовать с моделью, перемещая мышь
           внутри рамки справа. Нажмите на область модели, чтобы включить или отключить интерактивный просмотр.
@@ -68,6 +70,7 @@ const ModelPage = () => {
           overflow: 'hidden',
           cursor: 'pointer',
           position: 'relative',
+          marginRight: '100px',
         }}
         onMouseMove={handleMouseMove}
         onClick={handleAreaClick}
@@ -91,16 +94,16 @@ const ModelPage = () => {
               textAlign: 'center',
             }}
           >
-            Нажми для взаимодействия
+            Нажмите для взаимодействия
           </div>
         )}
-        <Canvas camera={{ position: [0, 0, 5], fov: 50 }} style={{ background: '#808080' }}>
+        <Canvas camera={{ position: [0, 0, 5], fov: 50 }} style={{ background: '#2c5c8f' }}>
           <ambientLight intensity={0.6} />
           <directionalLight position={[10, 10, 5]} />
           <Suspense fallback={null}>
             <CustomModel rotation={rotation} />
           </Suspense>
-          {isInteractive && <OrbitControls enableZoom={true} enablePan={false} />}
+          {<OrbitControls enableZoom={!isInteractive} enablePan={false} />}
         </Canvas>
       </div>
     </div>
