@@ -2,6 +2,7 @@ import { Canvas } from '@react-three/fiber';
 import { OrbitControls, useGLTF } from '@react-three/drei';
 import { Suspense, useState } from 'react';
 import React from 'react';
+import { useEffect, useRef } from 'react';
 
 const CustomModel = ({ rotation }: { rotation: [number, number, number] }) => {
   // Загружаем модель
@@ -10,10 +11,41 @@ const CustomModel = ({ rotation }: { rotation: [number, number, number] }) => {
   return <primitive object={scene} rotation={rotation} scale={[1,1,1]} position={[0, -0.4, 0]}/>;
 };
 
+const useScrollFadeIn = () => {
+  const ref = useRef<HTMLDivElement | null>(null);
+
+  useEffect(() => {
+    const node = ref.current;
+    if (!node) return;
+
+    const handleScroll = () => {
+      const rect = node.getBoundingClientRect();
+      const windowHeight = window.innerHeight || document.documentElement.clientHeight;
+      const visible = rect.top < windowHeight && rect.bottom > 0;
+      node.style.transition = 'opacity 0.8s, transform 0.8s';
+      if (visible) {
+        node.style.opacity = '1';
+        node.style.transform = 'translateY(0)';
+      } else {
+        node.style.opacity = '0';
+        node.style.transform = 'translateY(40px)';
+      }
+    };
+
+    handleScroll();
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  return ref;
+};
+
 const ModelPage = () => {
   const [rotation, setRotation] = useState<[number, number, number]>([0, 0, 0]);
   const [isInteractive, setIsInteractive] = useState(true);
   const [isHovered, setIsHovered] = useState(false);
+
+  const fadeRef = useScrollFadeIn();
 
   const handleMouseMove = (event: React.MouseEvent<HTMLDivElement>) => {
     if (isInteractive) return;
@@ -53,7 +85,15 @@ const ModelPage = () => {
         boxSizing: 'border-box',
       }}
     >
-      <div style={{ flex: 1, marginLeft: '100px' }}>
+      <div
+        ref={fadeRef}
+        style={{
+          flex: 1,
+          marginLeft: '100px',
+          opacity: 0,
+          transform: 'translateY(40px)',
+        }}
+      >
         <h2 className="text-start mb-3" style={{ color: 'purple', fontSize: '65px' }}>3D Модель</h2>
         <h4 className="text-start mb-4" text-muted style={{fontSize: '30px', color:"#808080"}}>Интерактивная демонстрация</h4>
         <p style={{ lineHeight: '1.8', fontSize: '1.1rem', textAlign: 'justify' }}>

@@ -21,6 +21,7 @@ const Navigation = () => (
     <Navbar.Collapse id="main-navbar-nav">
       <Nav className="ms-auto" style={{ gap: '70px', marginRight: '150px' }}>
         <Nav.Link href="#model">Модель</Nav.Link>
+        <Nav.Link href="#about">О деталях</Nav.Link>
         <Nav.Link href="#video">Видео</Nav.Link>
         <Nav.Link href="#info">Инфо</Nav.Link>
         <Nav.Link href="#opros">Опрос</Nav.Link>

@@ -10,13 +10,20 @@ const useInView = (offset = 0) => {
       if (!ref.current) return;
       const rect = ref.current.getBoundingClientRect();
       const windowHeight = window.innerHeight || document.documentElement.clientHeight;
+      // In view if any part is visible
       if (rect.top + offset < windowHeight && rect.bottom > 0) {
         setInView(true);
+      } else {
+        setInView(false);
       }
     };
     handleScroll();
     window.addEventListener('scroll', handleScroll, { passive: true });
-    return () => window.removeEventListener('scroll', handleScroll);
+    window.addEventListener('resize', handleScroll);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener('resize', handleScroll);
+    };
   }, [offset]);
 
   return [ref, inView] as const;
@@ -35,6 +42,10 @@ const Home = () => {
         backgroundSize: 'cover',
         backgroundPosition: 'center',
         backgroundRepeat: 'no-repeat',
+        transition: 'opacity 0.8s cubic-bezier(.4,0,.2,1), filter 0.8s cubic-bezier(.4,0,.2,1)',
+        opacity: inView ? 1 : 0,
+        filter: inView ? 'blur(0)' : 'blur(8px)',
+        pointerEvents: inView ? 'auto' : 'none',
       }}
       ref={ref}
     >
