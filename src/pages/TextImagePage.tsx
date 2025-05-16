@@ -68,6 +68,17 @@ const TextImagePage = () => {
           образовательных целях, арт-терапии и ещё во многом другом. Основная идея — использование песка и света
           как инструмента для визуального и тактильного взаимодействия.
         </p>
+        <img
+          src="/photos/sand.jpg"
+          alt="Песочный планшет"
+          style={{
+            marginTop: '2rem',
+            maxWidth: '100%',
+            height: 'auto',
+            borderRadius: '18px',
+            boxShadow: '0 4px 24px rgba(0,0,0,0.10)',
+          }}
+        />
       </Container>
     </div>
   );
