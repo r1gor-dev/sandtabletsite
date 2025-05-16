@@ -8,16 +8,32 @@ import Footer from './pages/Footer';
 import About from './pages/About';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
+const appContentStyle: React.CSSProperties = {
+  width: '100%',
+  maxWidth: '100vw',
+  overflowX: 'hidden',
+  margin: 0,
+  padding: 0,
+};
+
+const sectionStyle: React.CSSProperties = {
+  margin: 0,
+  padding: 0,
+  border: 'none',
+  boxSizing: 'border-box',
+  width: '100%',
+};
+
 const App = () => (
   <>
     <Navigation />
-    <div className="app-content" id="top" style={{ paddingTop: '40px', marginTop: '40px' }}>
-      <section id="home"><Home /></section>
-      <section id="model" style={{ minHeight: '100vh' }}><ModelPage /></section>
-      <section id="about"><About /></section>
-      <section id="video"><VideoPage /></section>
-      <section id="info"><TextImagePage /></section>
-      <section id="opros"><TextPhotoPage /></section>
+    <div className="app-content" id="top" style={appContentStyle}>
+      <section id="home" style={sectionStyle}><Home /></section>
+      <section id="model" style={{ ...sectionStyle, minHeight: '100vh' }}><ModelPage /></section>
+      <section id="about" style={sectionStyle}><About /></section>
+      <section id="video" style={sectionStyle}><VideoPage /></section>
+      <section id="info" style={sectionStyle}><TextImagePage /></section>
+      <section id="opros" style={sectionStyle}><TextPhotoPage /></section>
     </div>
     <Footer />
   </>

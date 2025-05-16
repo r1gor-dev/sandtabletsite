@@ -24,7 +24,7 @@ const Footer = () => (
         rel="noopener noreferrer"
         style={{ color: 'var(--main-accent2)' }}
       >
-        Ваша команда
+        Команда разработчиков
       </a>
     </p>
   </footer>

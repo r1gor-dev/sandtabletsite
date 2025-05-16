@@ -40,18 +40,19 @@ const ModelPage = () => {
 
   return (
     <div
-  style={{
-    height: '80vh',
-    background: '#f5f5f5',
-    display: 'flex',
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'space-between',
-    width: '100vw',
-    margin: -31,
-    padding: 0,
-  }}
->
+      style={{
+        minHeight: '100vh',
+        background: '#f5f5f5',
+        display: 'flex',
+        flexDirection: 'row',
+        alignItems: 'center',
+        justifyContent: 'space-between',
+        width: '100vw',
+        margin: 0,
+        padding: 0,
+        boxSizing: 'border-box',
+      }}
+    >
       <div style={{ flex: 1, marginLeft: '100px' }}>
         <h2 className="text-start mb-3" style={{ color: 'purple', fontSize: '65px' }}>3D Модель</h2>
         <h4 className="text-start mb-4" text-muted style={{fontSize: '30px', color:"#808080"}}>Интерактивная демонстрация</h4>
@@ -64,13 +65,15 @@ const ModelPage = () => {
       <div
         style={{
           flex: 1.5,
-          height: '70%',
-          border: '2px solid #ccc',
+          height: '60vh',
+          background: '#fff',
+          border: '4px solid #3d1991',
           borderRadius: '10px',
           overflow: 'hidden',
           cursor: 'pointer',
           position: 'relative',
           marginRight: '100px',
+          boxShadow: '0 2px 16px rgba(44,92,143,0.08)',
         }}
         onMouseMove={handleMouseMove}
         onClick={handleAreaClick}

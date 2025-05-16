@@ -6,30 +6,54 @@ const TextPhotoPage = () => (
     <Container className="py-5 d-flex flex-column align-items-center" style={{ flex: '1 0 auto' }}>
       <Row className="align-items-center">
         <Col md={6}>
-          <h2
-            className="text-start mb-3"
+            <h2
+            className="text-center mb-3"
             style={{
               color: '#2563eb',
-              fontSize: '2.5rem',
+              fontSize: '4rem',
               fontFamily: '"Lato", "Segoe UI", Arial, sans-serif',
               fontWeight: 700,
               letterSpacing: '0.02em',
+              WebkitTextStroke: '1px #fff',
+              textShadow: `
+              -0.5px -0.5px 0 #fff,  
+              0.5px -0.5px 0 #fff,
+              -0.5px 0.5px 0 #fff,
+              0.5px 0.5px 0 #fff
+              `,
             }}
-          >
-            Заголовок
-          </h2>
-          <h4
-            className="text-start mb-4"
+            >
+            Опрос
+            </h2>
+            <h4
+            className="text-center mb-4"
             style={{
               color: '#2563eb',
               fontSize: '1.7rem',
               fontFamily: '"Lato", "Segoe UI", Arial, sans-serif',
               fontWeight: 500,
               letterSpacing: '0.01em',
+              cursor: 'pointer',
+              textDecoration: 'underline',
+              WebkitTextStroke: '1px #fff',
+              textShadow: `
+              -0.5px -0.5px 0 #fff,  
+              0.5px -0.5px 0 #fff,
+              -0.5px 0.5px 0 #fff,
+              0.5px 0.5px 0 #fff
+              `,
             }}
-          >
-            Подзаголовок
-          </h4>
+            onClick={() => window.open('https://docs.google.com/forms/d/e/1FAIpQLSdUXLTfpdc3gibu90dmPd1JhZLoA_BK4NnbIuCOnAVqD54_bg/viewform?usp=header', '_blank')}
+            role="button"
+            tabIndex={0}
+            onKeyPress={e => {
+              if (e.key === 'Enter' || e.key === ' ') {
+              window.open('https://docs.google.com/forms/d/e/1FAIpQLSdUXLTfpdc3gibu90dmPd1JhZLoA_BK4NnbIuCOnAVqD54_bg/viewform?usp=header', '_blank');
+              }
+            }}
+            >
+            ПРОЙТИ ОПРОС
+            </h4>
           <p
             style={{
               fontSize: '1.3rem',
@@ -41,21 +65,8 @@ const TextPhotoPage = () => (
               letterSpacing: '0.01em',
             }}
           >
-            Это пример страницы, где слева находится текст, а справа — фотография. Вы можете использовать этот макет
-            для отображения информации, которая требует визуального сопровождения. Текст может быть длинным и содержать
-            несколько абзацев, чтобы объяснить идею, концепцию или предоставить подробности о проекте.
-          </p>
-          <p
-            style={{
-              fontSize: '1.3rem',
-              lineHeight: '2',
-              color: '#2563eb',
-              fontFamily: '"Lato", "Segoe UI", Arial, sans-serif',
-              fontWeight: 400,
-            }}
-          >
-            Фотография справа помогает дополнить текстовую информацию, предоставляя визуальный контекст. Этот макет
-            идеально подходит для презентаций, описаний продуктов или образовательных материалов.
+            Данный опрос поможет нам лучше понять ваши предпочтения и интересы. Также, он позволит нам провести
+            анализ и улучшить качество предоставляемых услуг. Пожалуйста, уделите несколько минут для прохождения
           </p>
         </Col>
         <Col md={6} className="d-flex justify-content-center">
