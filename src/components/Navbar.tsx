@@ -14,7 +14,16 @@ const Navigation = () => (
     }}
     variant="dark"
   >
-    <Navbar.Brand href="#home" style={{ fontSize: '1.1rem', padding: '0 12px', marginLeft: '100px'  }}>
+    <Navbar.Brand
+      href="#home"
+      style={{
+      fontSize: '1.1rem',
+      padding: '0 12px',
+      marginLeft: '100px',
+      background: 'transparent', // убирает фиолетовый фон при нажатии
+      boxShadow: 'none', // убирает возможную тень
+      }}
+    >
       Песочный Планшет
     </Navbar.Brand>
     <Navbar.Toggle aria-controls="main-navbar-nav" />
