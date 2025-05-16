@@ -9,7 +9,6 @@ const About = () => {
     const handleScroll = () => {
       if (!aboutRef.current) return;
       const rect = aboutRef.current.getBoundingClientRect();
-      // Fade out if less than 40% visible, fade in if more than 60% visible
       const windowHeight = window.innerHeight || document.documentElement.clientHeight;
       const visibleHeight = Math.max(0, Math.min(rect.bottom, windowHeight) - Math.max(rect.top, 0));
       const percentVisible = visibleHeight / rect.height;

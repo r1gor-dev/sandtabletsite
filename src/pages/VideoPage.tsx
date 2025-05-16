@@ -19,7 +19,7 @@ const VideoPage = () => {
     };
 
     const observer = new IntersectionObserver(handleIntersection, {
-      threshold: 0.5, // play when at least 50% visible
+      threshold: 0.5,
     });
 
     observer.observe(video);

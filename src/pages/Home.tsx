@@ -10,7 +10,6 @@ const useInView = (offset = 0) => {
       if (!ref.current) return;
       const rect = ref.current.getBoundingClientRect();
       const windowHeight = window.innerHeight || document.documentElement.clientHeight;
-      // In view if any part is visible
       if (rect.top + offset < windowHeight && rect.bottom > 0) {
         setInView(true);
       } else {
